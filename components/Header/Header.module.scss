@@ -1,0 +1,27 @@
+.header {
+    box-shadow: 0 0 10px rgba(#000, 0.5);
+    @media (max-width: 768px) {
+        padding: 0 15px;
+    }
+}
+
+.search {
+    display: flex;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 25px;
+
+    @media (max-width: 768px) {
+        max-width: 300px;
+    }
+}
+
+.logo {
+    color: #fff;
+    white-space: nowrap;
+    font-size: 18px;
+}
+
+.button {
+    flex-shrink: 0;
+}
