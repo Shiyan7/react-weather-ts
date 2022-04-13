@@ -1,8 +1,12 @@
 import Head from 'next/head'
-import { FC } from 'react'
+import { FC, ReactNode } from 'react'
 import { Header } from '../Header/Header'
 
-export const MainLayout: FC = ({ children }) => {
+interface ILayout {
+    children: ReactNode
+}
+
+export const Layout: FC<ILayout> = ({ children }) => {
     return (
         <>
             <Head>
@@ -10,9 +14,7 @@ export const MainLayout: FC = ({ children }) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
-            <main>
-                {children}
-            </main>
+            {children}
         </>
     )
 }
