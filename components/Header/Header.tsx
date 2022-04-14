@@ -3,6 +3,7 @@ import { FC, FormEvent, useState } from 'react'
 import { Button, Input, Layout, Row, Typography } from 'antd';
 import styles from './Header.module.scss'
 import { Menu } from './Menu';
+import { Search } from './Search';
 import { useActions } from '../../hooks/useActions';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 
@@ -10,22 +11,16 @@ export const Header: FC = () => {
 
     const {toggleMenu} = useActions()
     const {isOpenMenu} = useTypedSelector(state => state.menu)
+
     
     const handleSearch = (e: FormEvent<HTMLInputElement | HTMLButtonElement>) => console.log(e);
 
     return (
-        <Layout.Header style={{position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 1000}} className={styles.header}>
+        <Layout.Header style={{position: 'static', top: 0, left: 0, width: '100%', zIndex: 1000}} className={styles.header}>
             <Row align='middle' wrap={false} justify='space-between'>
                 <Typography.Text className={styles.logo}>Weather</Typography.Text>
                 
-                <div className={styles.search}>
-                    <Input.Search
-                        onChange={handleSearch}
-                        placeholder="Search weather by city"
-                        enterButton
-                        allowClear
-                    />
-                </div>
+                <Search />
 
                 <Button className={styles.button} onClick={toggleMenu} icon={<MenuOutlined />} size='middle' type='primary' />
             </Row>

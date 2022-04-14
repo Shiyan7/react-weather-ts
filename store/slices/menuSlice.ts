@@ -9,7 +9,7 @@ export const menuSlice = createSlice({
     initialState,
     reducers: {
         toggleMenu: state => {
-            return {isOpenMenu: !state.isOpenMenu}
+            state.isOpenMenu = !state.isOpenMenu
         }
     }
 })

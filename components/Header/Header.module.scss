@@ -1,7 +1,8 @@
 .header {
     box-shadow: 0 0 10px rgba(#000, 0.5);
     @media (max-width: 768px) {
-        padding: 0 15px;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
 

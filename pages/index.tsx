@@ -1,11 +1,11 @@
 import { NextPage } from 'next';
+import { Home } from '../components/screens/Home/Home';
 
-const Home: NextPage = () => {
+const Index: NextPage = () => {
+
   return (
-    <div>
-      home
-    </div>
+    <Home />
   );
 };
 
-export default Home;
+export default Index;
