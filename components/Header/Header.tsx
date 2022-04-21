@@ -1,19 +1,15 @@
 import { MenuOutlined } from '@ant-design/icons';
-import { FC, FormEvent, useState } from 'react'
-import { Button, Input, Layout, Row, Typography } from 'antd';
-import styles from './Header.module.scss'
+import { Button, Layout, Row, Typography } from 'antd';
 import { Menu } from './Menu';
 import { Search } from './Search';
-import { useActions } from '../../hooks/useActions';
-import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { useAppDispatch} from '../../hooks/redux';
+import { menuSlice } from '../../store/reducers/menuSlice';
+import styles from './Header.module.scss'
 
-export const Header: FC = () => {
+export const Header = () => {
 
-    const {toggleMenu} = useActions()
-    const {isOpenMenu} = useTypedSelector(state => state.menu)
-
-    
-    const handleSearch = (e: FormEvent<HTMLInputElement | HTMLButtonElement>) => console.log(e);
+    const {toggleMenu} = menuSlice.actions
+    const dispatch = useAppDispatch()
 
     return (
         <Layout.Header style={{position: 'static', top: 0, left: 0, width: '100%', zIndex: 1000}} className={styles.header}>
@@ -22,7 +18,7 @@ export const Header: FC = () => {
                 
                 <Search />
 
-                <Button className={styles.button} onClick={toggleMenu} icon={<MenuOutlined />} size='middle' type='primary' />
+                <Button className={styles.button} onClick={() => dispatch(toggleMenu())} icon={<MenuOutlined />} size='middle' type='primary' />
             </Row>
             <Menu />
         </Layout.Header>

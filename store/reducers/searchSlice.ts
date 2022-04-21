@@ -3,11 +3,13 @@ import { IWeather } from "../../types/IWeather";
 
 interface IState {
     value: string
+    city: string
     weatherItems: IWeather[]
 }
 
 const initialState: IState = {
     value: '',
+    city: 'New-York',
     weatherItems: []
 }
 
@@ -16,13 +18,17 @@ export const searchSlice = createSlice({
     initialState,
     reducers: {
         setValue: (state, action) => {
-            return {...state, value: action.payload}
+            state.value = action.payload
         },
-        setWeather: (state, action) => {
-            return {...state, weatherItems: [...state.weatherItems, action.payload]}
-        }
+        setCity: (state, action) => {
+            state.city = action.payload
+        },
     }
 })
 
-export const searchReducer = searchSlice.reducer;
-export const searchActions = searchSlice.actions;
+export const {
+    setCity,
+    setValue,
+} = searchSlice.actions
+
+export default searchSlice.reducer

@@ -1,33 +1,24 @@
 import { Input, InputRef } from 'antd'
-import axios from 'axios'
-import { ChangeEvent, FormEvent, MouseEvent, useEffect, useRef, useState } from 'react'
-import { API_KEY } from '../../utils/consts'
+import { ChangeEvent, useEffect, useRef } from 'react'
+import { useAppDispatch, useAppSelector } from '../../hooks/redux'
+import { setValue, setCity } from '../../store/reducers/searchSlice'
 import styles from './Header.module.scss'
-import { useTypedSelector } from '../../hooks/useTypedSelector'
-import { useActions } from '../../hooks/useActions'
 
 export const Search = () => {
-
-    const {value} = useTypedSelector(state => state.search)
-    const {setValue, setWeather} = useActions()
+    const { value } = useAppSelector(state => state.searchRedcuer)
+    const dispatch = useAppDispatch()
 
     const inputRef = useRef<InputRef>(null)
 
     const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setValue(e.target.value)
+        dispatch(setValue(e.target.value))
     }
 
     const clickHandler = async () => {
-        try {
-            const { data } = await axios.get(`https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${value}&days=7&aqi=no&alerts=no`)
-            
-            setWeather(data)
+        if(value.trim()) {
+            dispatch(setCity(value))
 
-            setValue('')
-
-            console.log(data);
-        } catch (e) {
-            console.error(e);
+            dispatch(setValue(''))
         }
     }
 
