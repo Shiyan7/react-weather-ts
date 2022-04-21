@@ -14,7 +14,7 @@ export const Header = () => {
     return (
         <Layout.Header style={{position: 'static', top: 0, left: 0, width: '100%', zIndex: 1000}} className={styles.header}>
             <Row align='middle' wrap={false} justify='space-between'>
-                <Typography.Text className={styles.logo}>Weather</Typography.Text>
+                <Typography.Text className={styles.logo}>Погода</Typography.Text>
                 
                 <Search />
 

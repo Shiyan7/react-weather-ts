@@ -11,15 +11,15 @@ export const Menu = () => {
     const dispatch = useAppDispatch()
 
     const menuArray = [
-        {text: 'Weather', href: HOME_ROUTE},
-        {text: 'Map', href: MAP_ROUTE},
-        {text: 'About', href: ABOUT_ROUTE},
+        {text: 'Главная', href: HOME_ROUTE},
+        {text: 'Карта', href: MAP_ROUTE},
+        {text: 'О приложении', href: ABOUT_ROUTE},
     ]
 
     return (
 
         <Drawer
-            title='Menu'
+            title='Меню'
             autoFocus
             width={300}
             visible={isOpenMenu}

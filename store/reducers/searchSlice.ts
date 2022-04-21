@@ -9,7 +9,7 @@ interface IState {
 
 const initialState: IState = {
     value: '',
-    city: 'New-York',
+    city: 'Kiev',
     weatherItems: []
 }
 

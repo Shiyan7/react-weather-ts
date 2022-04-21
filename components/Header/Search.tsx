@@ -30,7 +30,7 @@ export const Search = () => {
         <div className={styles.search}>
             <Input.Search
                 ref={inputRef}
-                placeholder="Search weather by city"
+                placeholder="Введите город..."
                 onChange={changeHandler}
                 onSearch={clickHandler}
                 value={value}

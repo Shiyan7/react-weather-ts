@@ -9,6 +9,7 @@ interface ILayout {
 }
 
 export const Layout: FC<ILayout> = ({ children }) => {
+
     return (
         <>
             <Head>
