@@ -70,7 +70,7 @@ export const Card: FC<IWeatherProps> = ({ item }) => {
           el.hour.map((el, idx) => (
             <SwiperSlide style={{width: 'auto'}} key={idx}>
               <div className={styles.slide}>
-                <span className={styles.date}>{dayjs.unix(el.time_epoch).format("HH")}</span>
+                <span className={styles.date}>{dayjs.unix(el.time_epoch).format("HH:mm")}</span>
                 {generateIcon(el.condition.code)}
                 <span className={styles.temp}>{Math.ceil(el.temp_c)} <sup>°</sup></span>
               </div>
