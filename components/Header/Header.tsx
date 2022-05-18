@@ -15,9 +15,7 @@ export const Header = () => {
         <Layout.Header style={{position: 'static', top: 0, left: 0, width: '100%', zIndex: 1000}} className={styles.header}>
             <Row align='middle' wrap={false} justify='space-between'>
                 <Typography.Text className={styles.logo}>Weather</Typography.Text>
-                
                 <Search />
-
                 <Button className={styles.button} onClick={() => dispatch(toggleMenu())} icon={<MenuOutlined />} size='middle' type='primary' />
             </Row>
             <Menu />

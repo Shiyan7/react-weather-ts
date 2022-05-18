@@ -2,7 +2,7 @@ import { CloudyIcon, MistIcon, MoonIcon, NightCloudyIcon, NightRainIcon, NightTh
 
 /* Простая switch case функция, которая генерирует иконку, на вход принимает пропс code (тут вся документация https://openweathermap.org/weather-conditions) */
 
-export function generateIcon (code: string) {
+export function generateIcon (code: string | undefined) {
     switch (code) {
       case '01d':
         return <SunnyIcon />

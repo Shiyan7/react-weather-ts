@@ -22,14 +22,6 @@ interface Current {
     wind_gust: number;
     weather: Weather[];
 }
-
-interface Weather2 {
-    id: number;
-    main: string;
-    description: string;
-    icon: string;
-}
-
 interface Rain {
     '1h': number;
 }
@@ -47,7 +39,7 @@ interface Hourly {
     wind_speed: number;
     wind_deg: number;
     wind_gust: number;
-    weather: Weather2[];
+    weather: Weather[];
     pop: number;
     rain: Rain;
 }
@@ -68,13 +60,6 @@ interface FeelsLike {
     morn: number;
 }
 
-interface Weather3 {
-    id: number;
-    main: string;
-    description: string;
-    icon: string;
-}
-
 interface Daily {
     dt: number;
     sunrise: number;
@@ -90,7 +75,7 @@ interface Daily {
     wind_speed: number;
     wind_deg: number;
     wind_gust: number;
-    weather: Weather3[];
+    weather: Weather[];
     clouds: number;
     pop: number;
     rain: number;

@@ -28,6 +28,7 @@
     "react": "18.0.0",
     "react-browser-navigator": "^1.5.7",
     "react-dom": "18.0.0",
+    "react-icons": "^4.3.1",
     "react-redux": "^7.2.8",
     "react-vh": "^1.1.1",
     "react-viewport-height": "^1.2.0",
