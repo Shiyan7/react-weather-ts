@@ -5,7 +5,7 @@ import { setValue, setCity } from '../../store/reducers/searchSlice'
 import styles from './Header.module.scss'
 
 export const Search = () => {
-    const { value } = useAppSelector(state => state.searchRedcuer)
+    const { value } = useAppSelector(state => state.searchReducer)
     const dispatch = useAppDispatch()
 
     const inputRef = useRef<InputRef>(null)
@@ -30,7 +30,7 @@ export const Search = () => {
         <div className={styles.search}>
             <Input.Search
                 ref={inputRef}
-                placeholder="Введите город..."
+                placeholder="Введите город на английском"
                 onChange={changeHandler}
                 onSearch={clickHandler}
                 value={value}

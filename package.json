@@ -12,8 +12,10 @@
     "@ant-design/icons": "^4.7.0",
     "@reduxjs/toolkit": "^1.8.1",
     "@types/redux-logger": "^3.0.9",
+    "@types/use-position": "^0.0.0",
     "antd": "^4.19.5",
     "axios": "^0.26.1",
+    "blitz": "^0.45.4",
     "dayjs": "^1.11.1",
     "image-trace-loader": "^1.0.2",
     "imagemin-gifsicle": "^7.0.0",
@@ -25,6 +27,7 @@
     "nextjs-progressbar": "^0.0.14",
     "node-sass": "^5.0.0",
     "react": "18.0.0",
+    "react-browser-navigator": "^1.5.7",
     "react-dom": "18.0.0",
     "react-redux": "^7.2.8",
     "react-vh": "^1.1.1",
@@ -33,6 +36,7 @@
     "responsive-loader": "^2.3.0",
     "svg-sprite-loader": "^6.0.11",
     "swiper": "^8.1.3",
+    "use-position": "^1.0.0",
     "webp-loader": "^0.6.0"
   },
   "devDependencies": {

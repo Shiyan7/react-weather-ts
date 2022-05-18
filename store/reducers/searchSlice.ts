@@ -1,16 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IWeather } from "../../types/IWeather";
+import { IWeather } from "../../models/IWeather";
 
 interface IState {
     value: string
     city: string
-    weatherItems: IWeather[]
 }
 
 const initialState: IState = {
     value: '',
-    city: 'Kiev',
-    weatherItems: []
+    city: 'London',
 }
 
 export const searchSlice = createSlice({

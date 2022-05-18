@@ -2,11 +2,13 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 // import logger from "redux-logger";
 import { weatherAPI } from "../services/WeatherService";
 import menuReducer from "./reducers/menuSlice";
-import searchRedcuer from './reducers/searchSlice';
+import searchReducer from './reducers/searchSlice';
+import weatherReducer from './reducers/weatherSlice';
 
 const rootReducer = combineReducers({
     menuReducer,
-    searchRedcuer,
+    searchReducer,
+    weatherReducer,
     [weatherAPI.reducerPath]: weatherAPI.reducer
 })
 

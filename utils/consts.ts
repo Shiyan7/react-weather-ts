@@ -1,5 +1,5 @@
 export const HOME_ROUTE = '/'
 export const MAP_ROUTE = '/map'
 export const ABOUT_ROUTE = '/about'
-export const API_KEY = '4c75f8ce1cc54337b38191824221304'
-export const BASE_URL = 'https://api.weatherapi.com/v1'
+export const API_KEY = '9f65ae6963995e561a91c68860d4f9cd'
+export const BASE_URL = 'https://api.openweathermap.org/data/2.5/'
