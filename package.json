@@ -15,7 +15,6 @@
     "@types/use-position": "^0.0.0",
     "antd": "^4.19.5",
     "axios": "^0.26.1",
-    "blitz": "^0.45.4",
     "dayjs": "^1.11.1",
     "image-trace-loader": "^1.0.2",
     "imagemin-gifsicle": "^7.0.0",

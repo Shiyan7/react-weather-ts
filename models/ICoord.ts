@@ -1,4 +1,4 @@
 export interface ICoord {
-    lat: number;
-    lon: number;
+    lat: number | undefined;
+    lon: number | undefined;
 }

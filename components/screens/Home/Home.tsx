@@ -1,6 +1,4 @@
 import { Layout, Spin } from 'antd'
-import { useAppSelector } from '../../../hooks/redux'
-import { IWeather } from '../../../models/IWeather'
 import { Card } from './components/Card/Card'
 import styles from './Home.module.scss'
 import { usePosition } from 'use-position';
