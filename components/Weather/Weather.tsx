@@ -34,9 +34,7 @@ export const Weather: React.FC<IWeatherProps> = ({data, isLoading}) => {
 
   const Loader = () => (
     <Stack spacing={2}>
-      <Skeleton className={styles.skeleton} sx={{ bgcolor: '#6C7590' }} />
-      <Skeleton className={styles.skeleton} sx={{ bgcolor: '#6C7590' }} height={500} />
-      <Skeleton className={styles.skeleton} sx={{ bgcolor: '#6C7590' }} />
+      <Skeleton height={600} />
     </Stack>
   )
 

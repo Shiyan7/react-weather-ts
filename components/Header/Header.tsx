@@ -16,7 +16,7 @@ export const Header: React.FC<IHeader> = ({title, isLoading}) => {
     const dispatch = useAppDispatch()
 
     const Loader = () => (
-        <Skeleton sx={{ bgcolor: '#6C7590', width: '150px', height: '30px' }} color='inherit' />
+        <Skeleton sx={{ bgcolor: '#6C7590', width: '150px', height: '20px' }} color='inherit' />
     )
 
     return (

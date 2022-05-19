@@ -38,6 +38,14 @@ export const theme = createTheme({
             backgroundColor: '#1e213a',
           }
         }
+      },
+      MuiSkeleton: {
+        styleOverrides: {
+          root: {
+            backgroundColor: '#6C7590',
+            transform: 'none' 
+          }
+        }
       }
     },
   })

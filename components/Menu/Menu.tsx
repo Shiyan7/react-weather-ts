@@ -35,7 +35,7 @@ export const Menu: React.FC<IMenuProps> = ({content}) => {
                 {content?.map((el, idx) => (
                     <SwiperSlide className={styles.item} key={idx}>
                         <span className={styles.day}>
-                            {idx === 0 ? 'Сегодня' : convertTimestampToDate(el.dt, 'dd')}
+                            {convertTimestampToDate(el.dt, 'dd')}
                         </span>
                         <span className={styles.date}>{convertTimestampToDate(el.dt, 'DD.MM')}</span>
                         {generateIcon(el.weather[0].icon)}
