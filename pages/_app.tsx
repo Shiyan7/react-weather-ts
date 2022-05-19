@@ -1,4 +1,3 @@
-import '../scss/App.scss';
 import type {AppProps} from 'next/app'
 import {Provider} from 'react-redux';
 import NextNProgress from 'nextjs-progressbar';
