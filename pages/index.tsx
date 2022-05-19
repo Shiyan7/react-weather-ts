@@ -9,15 +9,15 @@ import Head from 'next/head';
 const Index: NextPage = () => {
 
   const { latitude, longitude } = usePosition(true);
-  const { data, isLoading } = useGetWeatherByLocationQuery({lat: latitude, lon: longitude})
+  const { data, isLoading, isError } = useGetWeatherByLocationQuery({lat: latitude, lon: longitude})
 
   return (
     <>
       <Head>
         <title>Weather App</title>
       </Head>
-      <Header title={data?.timezone} isLoading={isLoading} />
-      <Weather data={data} isLoading={isLoading} />
+      <Header title={data?.timezone} isLoading={isLoading} isError={isError} />
+      <Weather data={data} isLoading={isLoading} isError={isError} />
       <Menu content={data?.daily} />
     </>
   );
