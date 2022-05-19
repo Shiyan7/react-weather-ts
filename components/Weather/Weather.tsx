@@ -34,7 +34,20 @@ export const Weather: React.FC<IWeatherProps> = ({data, isLoading}) => {
 
   const Loader = () => (
     <Stack spacing={2}>
-      <Skeleton height={600} />
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
+      <Skeleton />
     </Stack>
   )
 
