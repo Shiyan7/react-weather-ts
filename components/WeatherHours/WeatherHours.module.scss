@@ -63,4 +63,9 @@
 .windSpeedValue {
     font-size: 12px;
     line-height: 12px;
+
+    @media (max-width: 576px) {
+        font-size: 8px;
+        line-height: 8px;
+    }
 }

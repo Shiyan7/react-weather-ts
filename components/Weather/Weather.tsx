@@ -6,6 +6,8 @@ import { Button, LinearProgress, Skeleton, Stack } from '@mui/material'
 import { WeatherDays } from '../WeatherDays/WeatherDays';
 import { WeatherHours } from '../WeatherHours/WeatherHours'
 import { convertTimestampToDate } from '../../utils/convertTimestampToDate'
+import { useAppDispatch, useAppSelector } from '../../hooks/redux'
+import { toggleMenu } from '../../store/reducers/menuSlice'
 
 interface IWeatherProps {
     data: IWeather | undefined
@@ -13,6 +15,9 @@ interface IWeatherProps {
   }
 
 export const Weather: React.FC<IWeatherProps> = ({data, isLoading}) => {
+
+  const {isOpenMenu} = useAppSelector(state => state.menuReducer)
+  const dispatch = useAppDispatch()
 
   const {
     temp,
@@ -35,6 +40,8 @@ export const Weather: React.FC<IWeatherProps> = ({data, isLoading}) => {
     </Stack>
   )
 
+  const handleOpenMenu = () => dispatch(toggleMenu())
+
   const WeatherContent = () => (
     <div className={styles.content}>
       <h2 className={styles.temp}>
@@ -47,7 +54,7 @@ export const Weather: React.FC<IWeatherProps> = ({data, isLoading}) => {
         {clouds}%
       </span>
       <WeatherDays days={daily} />
-      <Button variant='contained' className={styles.btn}>Прогноз на неделю</Button>
+      <Button variant='contained' className={styles.btn} onClick={handleOpenMenu}>Прогноз на неделю</Button>
       <WeatherHours hours={hourly} />
       <ul className={styles.info}>
         <li className={styles.infoItem}>
