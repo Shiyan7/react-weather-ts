@@ -12,11 +12,11 @@ import { toggleMenu } from '../../store/reducers/menuSlice'
 interface IWeatherProps {
     data: IWeather | undefined
     isLoading: boolean
+    isError: boolean
   }
 
-export const Weather: React.FC<IWeatherProps> = ({data, isLoading}) => {
+export const Weather: React.FC<IWeatherProps> = ({data, isLoading, isError}) => {
 
-  const {isOpenMenu} = useAppSelector(state => state.menuReducer)
   const dispatch = useAppDispatch()
 
   const {
@@ -82,7 +82,7 @@ export const Weather: React.FC<IWeatherProps> = ({data, isLoading}) => {
         </li>
         <li className={styles.infoItem}>
           <span className={styles.infoItemCaption}>Влажность</span>
-          <span className={styles.infoItemValue}>{humidity}</span>
+          <span className={styles.infoItemValue}>{humidity}%</span>
         </li>
         <li className={styles.infoItem}>
           <span className={styles.infoItemCaption}>Давление</span>
@@ -99,7 +99,7 @@ export const Weather: React.FC<IWeatherProps> = ({data, isLoading}) => {
   return (
     <div className={styles.container}>
       <div className={styles.weather}>
-        {isLoading ? <Loader /> : <WeatherContent />}
+        {isLoading || isError ? <Loader /> : <WeatherContent />}
       </div>
     </div>
   )

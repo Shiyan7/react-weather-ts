@@ -27,26 +27,28 @@ export const Menu: React.FC<IMenuProps> = ({content}) => {
             onClose={() => dispatch(toggleMenu())}
             onOpen={() => dispatch(toggleMenu())}
         >
-            <Swiper
-                className={styles.slider}
-                spaceBetween={15}
-                slidesPerView='auto'
-            >
-                {content?.map((el, idx) => (
-                    <SwiperSlide className={styles.item} key={idx}>
-                        <span className={styles.day}>
-                            {convertTimestampToDate(el.dt, 'dd')}
-                        </span>
-                        <span className={styles.date}>{convertTimestampToDate(el.dt, 'DD.MM')}</span>
-                        {generateIcon(el.weather[0].icon)}
-                        <div className={styles.temp}>
-                            <span className={styles.tempValue}>{Math.round(el.temp.max)}<sup>°</sup></span>
-                            <span className={styles.tempDivider}>/</span>
-                            <span className={styles.tempValue}>{Math.round(el.temp.min)}<sup>°</sup></span>
-                        </div>
-                </SwiperSlide>
-                ))}
-            </Swiper>
+            <div className={styles.container}>
+                <Swiper
+                    className={styles.slider}
+                    spaceBetween={15}
+                    slidesPerView='auto'
+                >
+                    {content?.map((el, idx) => (
+                        <SwiperSlide className={styles.item} key={idx}>
+                            <span className={styles.day}>
+                                {convertTimestampToDate(el.dt, 'dd')}
+                            </span>
+                            <span className={styles.date}>{convertTimestampToDate(el.dt, 'DD.MM')}</span>
+                            {generateIcon(el.weather[0].icon)}
+                            <div className={styles.temp}>
+                                <span className={styles.tempValue}>{Math.round(el.temp.max)}<sup>°</sup></span>
+                                <span className={styles.tempDivider}>/</span>
+                                <span className={styles.tempValue}>{Math.round(el.temp.min)}<sup>°</sup></span>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
         </SwipeableDrawer>
     )
 }

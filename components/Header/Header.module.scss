@@ -18,29 +18,8 @@
     }
 }
 
-.button {
-    padding: 0;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    background-color: transparent;
-    font-size: 20px;
-    line-height: 20px;
-    color: #fff;
-    transition: opacity 0.3s;
-
-    @media (max-width: 576px) {
-        font-size: 20px;
-        line-height: 20px;
-    }
-
-    &:hover {
-        opacity: 0.5;
-    }
-}
-
 .title {
-    margin: 0;
+    margin: 0 auto;
     font-size: 18px;
     line-height: 18px;
     color: #fff;
@@ -55,32 +34,3 @@
         line-height: 16px;
     }
 }
-
-// .header {
-//     box-shadow: 0 0 10px rgba(#000, 0.5);
-//     @media (max-width: 768px) {
-//         padding-left: 15px;
-//         padding-right: 15px;
-//     }
-// }
-
-// .search {
-//     display: flex;
-//     max-width: 400px;
-//     width: 100%;
-//     margin: 0 25px;
-
-//     @media (max-width: 768px) {
-//         max-width: 300px;
-//     }
-// }
-
-// .logo {
-//     color: #fff;
-//     white-space: nowrap;
-//     font-size: 18px;
-// }
-
-// .button {
-//     flex-shrink: 0;
-// }

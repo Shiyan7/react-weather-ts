@@ -1,0 +1,10 @@
+{
+    "theme_color": "#292c44",
+    "background_color": "#1e213a",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "Weather App",
+    "short_name": "Weather App",
+    "description": "Weather App"
+  }

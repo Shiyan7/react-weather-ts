@@ -4,8 +4,8 @@ import { IHourly } from '../../models/IWeather';
 import { convertTimestampToDate } from '../../utils/convertTimestampToDate'
 import { generateIcon } from '../../utils/generateIcon'
 import styles from './WeatherHours.module.scss'
-import 'swiper/css';
 import { Air } from '@mui/icons-material';
+import 'swiper/css';
 
 interface IWeatherHoursProps {
     hours: IHourly[] | undefined
