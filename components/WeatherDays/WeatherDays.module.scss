@@ -1,0 +1,78 @@
+.container {
+    margin-bottom: 30px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+        margin-bottom: 5px;
+    }
+
+    svg {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+}
+
+.left {
+    display: flex;
+    align-items: center;
+}
+
+.day {
+    position: relative;
+    display: inline-block;
+    align-items: center;
+    margin-right: 10px;
+    text-transform: capitalize;
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: -6px;
+        transform: translateY(-50%);
+        width: 2px;
+        height: 2px;
+        border-radius: 100%;
+        background-color: currentColor;
+    }
+}
+
+.desc {
+    display: block;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 11px;
+    text-transform: uppercase;
+    color: rgba(#fff, 0.7);
+}
+
+.temp {
+    display: flex;
+    align-items: center;
+    min-width: 60px;
+}
+
+.tempValue {
+    position: relative;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    color: #fff;
+
+    sup {
+        position: absolute;
+        top: -2px;
+        right: -6px;
+    }
+}
+
+.tempDivider {
+    margin-right: 5px;
+    margin-left: 8px;
+}

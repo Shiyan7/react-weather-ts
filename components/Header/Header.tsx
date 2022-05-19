@@ -1,25 +1,39 @@
-import { MenuOutlined } from '@ant-design/icons';
-import { Button, Layout, Row, Typography } from 'antd';
-import { Menu } from './Menu';
-import { Search } from './Search';
 import { useAppDispatch} from '../../hooks/redux';
 import { menuSlice } from '../../store/reducers/menuSlice';
 import styles from './Header.module.scss'
+import {FiMoreVertical, FiPlus} from 'react-icons/fi'
+import React from 'react';
+import { Skeleton } from '@mui/material';
 
-export const Header = () => {
+interface IHeader {
+    title: string | undefined
+    isLoading: boolean
+}
+
+export const Header: React.FC<IHeader> = ({title, isLoading}) => {
 
     const {toggleMenu} = menuSlice.actions
     const dispatch = useAppDispatch()
 
+    const Loader = () => (
+        <Skeleton sx={{ bgcolor: '#6C7590', width: '150px', height: '30px' }} color='inherit' />
+    )
+
     return (
-        <Layout.Header style={{position: 'static', top: 0, left: 0, width: '100%', zIndex: 1000}} className={styles.header}>
-            <Row align='middle' wrap={false} justify='space-between'>
-                <Typography.Text className={styles.logo}>Weather</Typography.Text>
-                <Search />
-                <Button className={styles.button} onClick={() => dispatch(toggleMenu())} icon={<MenuOutlined />} size='middle' type='primary' />
-            </Row>
-            <Menu />
-        </Layout.Header>
+
+        <div className={styles.header}>
+            <div className={styles.container}>
+                <button className={styles.button}>
+                    <FiPlus />
+                </button>
+                <h1 className={styles.title}>
+                    {isLoading ? <Loader /> : title}
+                </h1>
+                <button className={styles.button}>
+                    <FiMoreVertical />
+                </button>
+            </div>
+        </div>
     )
 }
 

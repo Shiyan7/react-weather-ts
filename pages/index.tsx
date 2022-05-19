@@ -1,15 +1,19 @@
 import { NextPage } from 'next';
-import { Card } from '../components/Card/Card';
 import { usePosition } from 'use-position';
 import { useGetWeatherByLocationQuery } from '../services/WeatherService'
+import { Header } from '../components/Header/Header';
+import { Weather } from '../components/Weather/Weather';
 
 const Index: NextPage = () => {
 
-  const { latitude, longitude } = usePosition(false);
-  const { data, isLoading } = useGetWeatherByLocationQuery({lat: latitude, lon: longitude})
+  const { latitude, longitude } = usePosition(true);
+  const { data, isLoading } = useGetWeatherByLocationQuery({lat: latitude, lon: longitude}, {pollingInterval: 60000})
 
   return (
-    <Card item={data} isLoading={isLoading} />
+    <>
+      <Header title={data?.timezone} isLoading={isLoading} />
+      <Weather data={data} isLoading={isLoading} />
+    </>
   );
 };
 

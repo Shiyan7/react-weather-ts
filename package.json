@@ -9,12 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.7.0",
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/icons-material": "^5.8.0",
+    "@mui/material": "^5.8.0",
     "@reduxjs/toolkit": "^1.8.1",
     "@types/redux-logger": "^3.0.9",
     "@types/use-position": "^0.0.0",
-    "antd": "^4.19.5",
     "axios": "^0.26.1",
+    "classnames": "^2.3.1",
     "dayjs": "^1.11.1",
     "image-trace-loader": "^1.0.2",
     "imagemin-gifsicle": "^7.0.0",
