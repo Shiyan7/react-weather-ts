@@ -35,7 +35,6 @@
     "react-redux": "^7.2.8",
     "react-vh": "^1.1.1",
     "react-viewport-height": "^1.2.0",
-    "redux-logger": "^3.0.6",
     "responsive-loader": "^2.3.0",
     "svg-sprite-loader": "^6.0.11",
     "swiper": "^8.1.3",

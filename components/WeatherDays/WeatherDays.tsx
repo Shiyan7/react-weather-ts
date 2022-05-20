@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './WeatherDays.module.scss'
 import { convertTimestampToDate } from '../../utils/convertTimestampToDate'
 import { generateIcon } from '../../utils/generateIcon'
-import { IDaily } from '../../models/IWeather'
+import { IDaily } from '../../types/IWeather'
 
 interface IWeatherDaysProps {
     days: IDaily[] | undefined

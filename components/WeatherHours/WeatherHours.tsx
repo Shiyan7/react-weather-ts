@@ -1,6 +1,6 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { IHourly } from '../../models/IWeather';
+import { IHourly } from '../../types/IWeather';
 import { convertTimestampToDate } from '../../utils/convertTimestampToDate'
 import { generateIcon } from '../../utils/generateIcon'
 import styles from './WeatherHours.module.scss'

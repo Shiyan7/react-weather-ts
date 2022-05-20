@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { IDaily } from '../../models/IWeather';
+import { IDaily } from '../../types/IWeather';
 import { menuSlice } from '../../store/reducers/menuSlice';
 import { convertTimestampToDate } from '../../utils/convertTimestampToDate';
 import { generateIcon } from '../../utils/generateIcon';
@@ -35,9 +35,7 @@ export const Menu: React.FC<IMenuProps> = ({content}) => {
                 >
                     {content?.map((el, idx) => (
                         <SwiperSlide className={styles.item} key={idx}>
-                            <span className={styles.day}>
-                                {convertTimestampToDate(el.dt, 'dd')}
-                            </span>
+                            <span className={styles.day}>{convertTimestampToDate(el.dt, 'dd')}</span>
                             <span className={styles.date}>{convertTimestampToDate(el.dt, 'DD.MM')}</span>
                             {generateIcon(el.weather[0].icon)}
                             <div className={styles.temp}>

@@ -1,13 +1,13 @@
 import React from 'react'
-import { IWeather } from '../../models/IWeather'
-import styles from './Weather.module.scss'
+import { IWeather } from '../../types/IWeather'
 import { Cloud } from '@mui/icons-material'
-import { Button, LinearProgress, Skeleton, Stack } from '@mui/material'
+import { Button, Skeleton, Stack } from '@mui/material'
 import { WeatherDays } from '../WeatherDays/WeatherDays';
 import { WeatherHours } from '../WeatherHours/WeatherHours'
 import { convertTimestampToDate } from '../../utils/convertTimestampToDate'
-import { useAppDispatch, useAppSelector } from '../../hooks/redux'
+import { useAppDispatch } from '../../hooks/redux'
 import { toggleMenu } from '../../store/reducers/menuSlice'
+import styles from './Weather.module.scss'
 
 interface IWeatherProps {
     data: IWeather | undefined

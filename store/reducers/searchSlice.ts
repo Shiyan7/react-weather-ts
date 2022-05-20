@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IWeather } from "../../models/IWeather";
+import { IWeather } from "../../types/IWeather";
 
 interface IState {
     value: string

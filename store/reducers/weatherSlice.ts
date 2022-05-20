@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ICoord } from "../../models/ICoord";
+import { ICoord } from "../../types/ICoord";
 
 interface IState {
   location: ICoord
