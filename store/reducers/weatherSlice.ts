@@ -1,7 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { ICoord } from "../../models/ICoord";
 
-const initialState = {
-  location: {lat: 0, long: 0}
+interface IState {
+  location: ICoord
+}
+
+const initialState: IState = {
+  location: {
+    lat: 0, lon: 0
+  }
 }
 
 export const weatherSlice = createSlice({

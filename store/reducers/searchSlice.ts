@@ -8,7 +8,7 @@ interface IState {
 
 const initialState: IState = {
     value: '',
-    city: 'London',
+    city: '',
 }
 
 export const searchSlice = createSlice({

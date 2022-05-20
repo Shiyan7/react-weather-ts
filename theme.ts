@@ -43,6 +43,7 @@ export const theme = createTheme({
         styleOverrides: {
           root: {
             backgroundColor: '#6C7590',
+            borderRadius: '5px',
             transform: 'none' 
           }
         }
