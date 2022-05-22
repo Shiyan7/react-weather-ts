@@ -18,32 +18,23 @@ export const WeatherInfo: FC<WeatherInfoProps> = ({data}) => {
     feels_like,
   } = {...data?.current};
 
+  const items = [
+    {title: 'Восход', value: convertTimestampToDate(sunrise, 'HH:mm')},
+    {title: 'Закат', value: convertTimestampToDate(sunset, 'HH:mm')},
+    {title: 'Ощущается', value: Math.round(Number(feels_like)), caption: '°C'},
+    {title: 'Влажность', value: humidity, caption: '%'},
+    {title: 'Давление', value: pressure, caption: 'mbar'},
+    {title: 'Скорость ветра', value: wind_speed, caption: 'км/ч'},
+  ]
+
   return (
     <ul className={styles.info}>
-      <li className={styles.item}>
-        <span className={styles.caption}>Восход</span>
-        <span className={styles.value}>{convertTimestampToDate(sunrise, 'HH:mm')}</span>
-      </li>
-      <li className={styles.item}>
-        <span className={styles.caption}>Закат</span>
-        <span className={styles.value}>{convertTimestampToDate(sunset, 'HH:mm')}</span>
-      </li>
-      <li className={styles.item}>
-        <span className={styles.caption}>Ощущается</span>
-        <span className={styles.value}>{Math.round(Number(feels_like))}°C</span>
-      </li>
-      <li className={styles.item}>
-        <span className={styles.caption}>Влажность</span>
-        <span className={styles.value}>{humidity}%</span>
-      </li>
-      <li className={styles.item}>
-        <span className={styles.caption}>Давление</span>
-        <span className={styles.value}>{pressure}mbar</span>
-      </li>
-      <li className={styles.item}>
-        <span className={styles.caption}>Скорость ветра</span>
-        <span className={styles.value}>{wind_speed} км/ч</span>
-      </li>
+      {items.map((el, idx) => (
+        <li className={styles.item} key={idx}>
+          <span className={styles.title}>{el.title}</span>
+          <span className={styles.value}>{el.value} {el.caption}</span>
+        </li>
+      ))}
     </ul>
   )
 }

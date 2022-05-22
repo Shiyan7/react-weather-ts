@@ -1,5 +1,5 @@
-.slider {
-    margin: 50px 0 40px;
+.container {
+    padding: 50px 0 40px;
 }
 
 .item {
@@ -12,7 +12,7 @@
         display: block;
         width: 30px;
         height: 30px;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         pointer-events: none;
     }
 }
@@ -31,7 +31,7 @@
     line-height: 18px;
     font-weight: 400;
     pointer-events: none;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 
     sup {
         position: absolute;
