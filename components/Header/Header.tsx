@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Header.module.scss'
-import { Skeleton, Box } from '@mui/material';
+import { Skeleton, Box, IconButton } from '@mui/material';
 import {FiMoreVertical, FiPlus} from 'react-icons/fi'
 
 interface IHeader {
@@ -21,15 +21,15 @@ export const Header: React.FC<IHeader> = ({title, isLoading, isError}) => {
 
     const HeaderContent = () => (
         <>
-            <button className={styles.button}>
+            <IconButton className={styles.button}>
                 <FiPlus />
-            </button>
+            </IconButton>
             <h1 className={styles.title}>
                 {title}
             </h1>
-            <button className={styles.button}>
+            <IconButton className={styles.button}>
                 <FiMoreVertical />
-            </button>
+            </IconButton>
         </>
     )
 

@@ -25,12 +25,6 @@ export const Weather: FC<WeatherProps> = ({data, isLoading, isError}) => {
     daily
   } = {...data, ...data?.current};
 
-  const Loader = () => (
-    <Stack spacing={2}>
-      <Skeleton height={550} />
-    </Stack>
-  )
-
   const handleOpenMenu = () => toggleMenu()
 
   const WeatherContent = () => (
@@ -45,7 +39,13 @@ export const Weather: FC<WeatherProps> = ({data, isLoading, isError}) => {
         {clouds}%
       </span>
       <WeatherDays days={daily} />
-      <Button variant='contained' className={styles.btn} onClick={handleOpenMenu}>Прогноз на неделю</Button>
+      <Button
+        className={styles.btn}
+        variant='contained'
+        onClick={handleOpenMenu}
+      >
+        Прогноз на неделю
+      </Button>
       <WeatherHours hours={hourly} />
       <WeatherInfo data={data} />
     </div>
@@ -54,7 +54,7 @@ export const Weather: FC<WeatherProps> = ({data, isLoading, isError}) => {
   return (
     <div className={styles.container}>
       <div className={styles.weather}>
-        {isLoading || isError ? <Loader /> : <WeatherContent />}
+        {isLoading || isError ? <Skeleton height={550} /> : <WeatherContent />}
       </div>
     </div>
   )

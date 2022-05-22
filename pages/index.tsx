@@ -5,7 +5,6 @@ import { Header } from '../components/Header/Header';
 import { Weather } from '../components/Weather/Weather';
 import { Menu } from '../components/Menu/Menu';
 import Head from 'next/head';
-import { useEffect } from 'react';
 
 const Index: NextPage = () => {
 
@@ -17,9 +16,19 @@ const Index: NextPage = () => {
       <Head>
         <title>Weather App</title>
       </Head>
-      <Header title={data?.timezone} isLoading={isLoading} isError={isError} />
-      <Weather data={data} isLoading={isLoading} isError={isError} />
-      <Menu content={data?.daily} />
+      <Header
+        title={data?.timezone}
+        isLoading={isLoading}
+        isError={isError}
+      />
+      <Weather
+        data={data}
+        isLoading={isLoading}
+        isError={isError}
+      />
+      <Menu
+        content={data?.daily}
+      />
     </>
   );
 };

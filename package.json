@@ -33,7 +33,6 @@
     "react-dom": "18.0.0",
     "react-icons": "^4.3.1",
     "react-redux": "^7.2.8",
-    "react-vh": "^1.1.1",
     "react-viewport-height": "^1.2.0",
     "responsive-loader": "^2.3.0",
     "svg-sprite-loader": "^6.0.11",

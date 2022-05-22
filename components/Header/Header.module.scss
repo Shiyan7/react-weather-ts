@@ -19,24 +19,9 @@
 }
 
 .button {
-    padding: 0;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    background-color: transparent;
+    color: #fff;
     font-size: 20px;
     line-height: 20px;
-    color: #fff;
-    transition: opacity 0.3s;
-
-    @media (max-width: 576px) {
-        font-size: 20px;
-        line-height: 20px;
-    }
-
-    &:hover {
-        opacity: 0.5;
-    }
 }
 
 .title {
