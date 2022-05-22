@@ -1,57 +1,37 @@
-import React from 'react'
+import { FC } from 'react'
 import { IWeather } from '../../types/IWeather'
 import { Cloud } from '@mui/icons-material'
 import { Button, Skeleton, Stack } from '@mui/material'
 import { WeatherDays } from '../WeatherDays/WeatherDays';
 import { WeatherHours } from '../WeatherHours/WeatherHours'
-import { convertTimestampToDate } from '../../utils/convertTimestampToDate'
-import { useAppDispatch } from '../../hooks/redux'
-import { toggleMenu } from '../../store/reducers/menuSlice'
+import { WeatherInfo } from '../WeatherInfo/WeatherInfo';
+import { useActions } from '../../hooks/useActions';
 import styles from './Weather.module.scss'
 
-interface IWeatherProps {
+interface WeatherProps {
     data: IWeather | undefined
     isLoading: boolean
     isError: boolean
   }
 
-export const Weather: React.FC<IWeatherProps> = ({data, isLoading, isError}) => {
+export const Weather: FC<WeatherProps> = ({data, isLoading, isError}) => {
 
-  const dispatch = useAppDispatch()
+  const {toggleMenu} = useActions()
 
   const {
     temp,
     clouds,
-    sunrise,
-    sunset,
-    wind_speed,
-    pressure,
-    humidity,
-    feels_like,
     hourly,
     daily
   } = {...data, ...data?.current};
 
   const Loader = () => (
     <Stack spacing={2}>
-      <Skeleton />
-      <Skeleton />
-      <Skeleton />
-      <Skeleton />
-      <Skeleton />
-      <Skeleton />
-      <Skeleton />
-      <Skeleton />
-      <Skeleton />
-      <Skeleton />
-      <Skeleton />
-      <Skeleton />
-      <Skeleton />
-      <Skeleton />
+      <Skeleton height={550} />
     </Stack>
   )
 
-  const handleOpenMenu = () => dispatch(toggleMenu())
+  const handleOpenMenu = () => toggleMenu()
 
   const WeatherContent = () => (
     <div className={styles.content}>
@@ -67,32 +47,7 @@ export const Weather: React.FC<IWeatherProps> = ({data, isLoading, isError}) => 
       <WeatherDays days={daily} />
       <Button variant='contained' className={styles.btn} onClick={handleOpenMenu}>Прогноз на неделю</Button>
       <WeatherHours hours={hourly} />
-      <ul className={styles.info}>
-        <li className={styles.infoItem}>
-          <span className={styles.infoItemCaption}>Восход</span>
-          <span className={styles.infoItemValue}>{convertTimestampToDate(sunrise, 'HH:mm')}</span>
-        </li>
-        <li className={styles.infoItem}>
-          <span className={styles.infoItemCaption}>Закат</span>
-          <span className={styles.infoItemValue}>{convertTimestampToDate(sunset, 'HH:mm')}</span>
-        </li>
-        <li className={styles.infoItem}>
-          <span className={styles.infoItemCaption}>Ощущается</span>
-          <span className={styles.infoItemValue}>{Math.round(Number(feels_like))}°C</span>
-        </li>
-        <li className={styles.infoItem}>
-          <span className={styles.infoItemCaption}>Влажность</span>
-          <span className={styles.infoItemValue}>{humidity}%</span>
-        </li>
-        <li className={styles.infoItem}>
-          <span className={styles.infoItemCaption}>Давление</span>
-          <span className={styles.infoItemValue}>{pressure}mbar</span>
-        </li>
-        <li className={styles.infoItem}>
-          <span className={styles.infoItemCaption}>Скорость ветра</span>
-          <span className={styles.infoItemValue}>{wind_speed} км/ч</span>
-        </li>
-      </ul>
+      <WeatherInfo data={data} />
     </div>
   )
 

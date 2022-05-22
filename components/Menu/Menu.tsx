@@ -1,31 +1,31 @@
-import { Drawer, SwipeableDrawer } from '@mui/material';
-import Link from 'next/link';
-import React from 'react';
+import { FC } from 'react';
+import { SwipeableDrawer } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { IDaily } from '../../types/IWeather';
-import { menuSlice } from '../../store/reducers/menuSlice';
-import { convertTimestampToDate } from '../../utils/convertTimestampToDate';
-import { generateIcon } from '../../utils/generateIcon';
+import { convertTimestampToDate } from '../../helpers/convertTimestampToDate';
+import { generateIcon } from '../../helpers/generateIcon';
+import { useActions } from '../../hooks/useActions';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 import styles from './Menu.module.scss';
 
-interface IMenuProps {
+interface MenuProps {
     content: IDaily[] | undefined
 }
 
-export const Menu: React.FC<IMenuProps> = ({content}) => {
+export const Menu: FC<MenuProps> = ({content}) => {
 
-    const {isOpenMenu} = useAppSelector(state => state.menuReducer)
-    const {toggleMenu} = menuSlice.actions
-    const dispatch = useAppDispatch()
+    const {isOpenMenu} = useTypedSelector(state => state.menuReducer)
+    const {toggleMenu} = useActions()
+
+    const handleToggle = () => toggleMenu()
 
     return (
 
         <SwipeableDrawer
             anchor='bottom'
             open={isOpenMenu}
-            onClose={() => dispatch(toggleMenu())}
-            onOpen={() => dispatch(toggleMenu())}
+            onClose={handleToggle}
+            onOpen={handleToggle}
         >
             <div className={styles.container}>
                 <Swiper

@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { weatherAPI } from "../services/WeatherService";
-import menuReducer from "./reducers/menuSlice";
+import { menuReducer } from "./reducers/menuSlice";
 import searchReducer from './reducers/searchSlice';
 import weatherReducer from './reducers/weatherSlice';
 

@@ -64,35 +64,3 @@
         margin-right: 5px;
     }
 }
-
-.info {
-    border-radius: 15px;
-    background-color: rgba(#fff, 0.1);
-    row-gap: 20px;
-    padding: 40px 30px;
-    margin: 0;
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.infoItem {
-    text-align: left;
-}
-
-.infoItemCaption {
-    display: block;
-    font-size: 12px;
-    line-height: 12px;
-    margin-bottom: 7px;
-    color: rgba(#fff, 0.7);
-}
-
-.infoItemValue {
-    position: relative;
-    font-size: 18px;
-    line-height: 18px;
-    font-weight: 400;
-    pointer-events: none;
-    margin-bottom: 5px;
-}

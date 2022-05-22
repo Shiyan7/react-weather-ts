@@ -1,21 +1,21 @@
-import React from 'react'
+import { FC } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { IHourly } from '../../types/IWeather';
-import { convertTimestampToDate } from '../../utils/convertTimestampToDate'
-import { generateIcon } from '../../utils/generateIcon'
+import { convertTimestampToDate } from '../../helpers/convertTimestampToDate'
+import { generateIcon } from '../../helpers/generateIcon'
 import styles from './WeatherHours.module.scss'
 import { Air } from '@mui/icons-material';
 import 'swiper/css';
 
-interface IWeatherHoursProps {
+interface WeatherHoursProps {
     hours: IHourly[] | undefined
 }
 
-export const WeatherHours: React.FC<IWeatherHoursProps> = ({hours}) => {
+export const WeatherHours: FC<WeatherHoursProps> = ({hours}) => {
   return (
     <Swiper
         className={styles.slider}
-        spaceBetween={19}
+        spaceBetween={20}
         slidesPerView={4}
         slidesPerGroup={4}
     >

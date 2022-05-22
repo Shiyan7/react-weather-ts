@@ -1,7 +1,7 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/dist/query/react'
+import { API_KEY, BASE_URL } from '../constants/api';
 import { ICoord } from '../types/ICoord';
 import { IWeather } from '../types/IWeather';
-import { API_KEY, BASE_URL } from "../utils/consts";
 
 export const weatherAPI = createApi({
   reducerPath: "weatherAPI",

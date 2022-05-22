@@ -1,14 +1,14 @@
-import React from 'react'
-import styles from './WeatherDays.module.scss'
-import { convertTimestampToDate } from '../../utils/convertTimestampToDate'
-import { generateIcon } from '../../utils/generateIcon'
+import { FC } from 'react'
+import { convertTimestampToDate } from '../../helpers/convertTimestampToDate'
+import { generateIcon } from '../../helpers/generateIcon'
 import { IDaily } from '../../types/IWeather'
+import styles from './WeatherDays.module.scss'
 
-interface IWeatherDaysProps {
+interface WeatherDaysProps {
     days: IDaily[] | undefined
 }
 
-export const WeatherDays: React.FC<IWeatherDaysProps> = ({days}) => {
+export const WeatherDays: FC<WeatherDaysProps> = ({days}) => {
   return (
     <div className={styles.container}>
         {days?.slice(0, 3).map((el, idx) => (
