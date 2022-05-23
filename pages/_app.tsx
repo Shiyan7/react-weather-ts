@@ -1,9 +1,10 @@
 import type {AppProps} from 'next/app'
 import {Provider} from 'react-redux';
-import NextNProgress from 'nextjs-progressbar';
 import {setupStore} from '../store/store';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { theme } from '../theme';
+import { Layout } from '../components/Layout/Layout';
+import NextNProgress from 'nextjs-progressbar';
 
 export default function MyApp({Component, pageProps} : AppProps) {
 
@@ -12,9 +13,11 @@ export default function MyApp({Component, pageProps} : AppProps) {
     return (
       <ThemeProvider theme={theme}>
         <Provider store={store}>
-          <CssBaseline />
-          <NextNProgress/>
-          <Component {...pageProps}/>
+          <Layout>
+            <CssBaseline />
+            <NextNProgress/>
+            <Component {...pageProps}/>
+          </Layout>
         </Provider>
       </ThemeProvider>
     )

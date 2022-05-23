@@ -1,15 +1,11 @@
-import React from 'react';
-import styles from './Header.module.scss'
 import { Skeleton, Box, IconButton } from '@mui/material';
-import {FiMoreVertical, FiPlus} from 'react-icons/fi'
+import { FiMoreVertical, FiPlus } from 'react-icons/fi'
+import { useTypedSelector } from '../../hooks/redux';
+import styles from './Header.module.scss'
 
-interface IHeader {
-    title: string | undefined
-    isLoading: boolean
-    isError: boolean
-}
+export const Header = () => {
 
-export const Header: React.FC<IHeader> = ({title, isLoading, isError}) => {
+    const {data, isLoading, error} = useTypedSelector(state => state.weatherReducer)
 
     const Loader = () => (
         <Box sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%'}}>
@@ -25,7 +21,7 @@ export const Header: React.FC<IHeader> = ({title, isLoading, isError}) => {
                 <FiPlus />
             </IconButton>
             <h1 className={styles.title}>
-                {title}
+                {data?.timezone}
             </h1>
             <IconButton sx={{fontSize: '20px', lineHeight: '20px', color: '#fff'}}>
                 <FiMoreVertical />
@@ -34,10 +30,9 @@ export const Header: React.FC<IHeader> = ({title, isLoading, isError}) => {
     )
 
     return (
-
         <div className={styles.header}>
             <div className={styles.container}>
-                {isLoading || isError ? <Loader /> : <HeaderContent />}
+                {isLoading || error ? <Loader /> : <HeaderContent />}
             </div>
         </div>
     )

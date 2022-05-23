@@ -913,13 +913,6 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/redux-logger@^3.0.9":
-  version "3.0.9"
-  resolved "https://registry.yarnpkg.com/@types/redux-logger/-/redux-logger-3.0.9.tgz#9193b3d51bb6ab98d25514ba7764e4f98a64d3ec"
-  integrity sha512-cwYhVbYNgH01aepeMwhd0ABX6fhVB2rcQ9m80u8Fl50ZODhsZ8RhQArnLTkE7/Zrfq4Sz/taNoF7DQy9pCZSKg==
-  dependencies:
-    redux "^4.0.0"
-
 "@types/scheduler@*":
   version "0.16.2"
   resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
@@ -5257,11 +5250,6 @@ react-transition-group@^4.4.2:
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
-
-react-viewport-height@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/react-viewport-height/-/react-viewport-height-1.2.0.tgz#66b1b843abfa3b5ea1126ddd9590cfc3d843dd3d"
-  integrity sha512-dntpE7D5cX5ScvHpCin0zBihr4uuzqqGxlF9t2XkBdfLW7v/lOVfnBgI/iaoIbmL+lfFJev6Kli+zRWNXYzsEA==
 
 react@18.0.0:
   version "18.0.0"

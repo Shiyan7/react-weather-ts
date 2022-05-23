@@ -1,23 +1,18 @@
-import { FC } from 'react';
 import { SwipeableDrawer } from '@mui/material';
+import { useDispatch } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { IDaily } from '../../types/IWeather';
 import { convertTimestampToDate } from '../../helpers/convertTimestampToDate';
 import { generateIcon } from '../../helpers/generateIcon';
-import { useActions } from '../../hooks/useActions';
-import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { useTypedSelector } from '../../hooks/redux';
+import { toggleMenu } from '../../store/reducers/menuSlice';
 import styles from './Menu.module.scss';
 
-interface MenuProps {
-    content: IDaily[] | undefined
-}
+export const Menu = () => {
 
-export const Menu: FC<MenuProps> = ({content}) => {
-
-    const {isOpenMenu} = useTypedSelector(state => state.menuReducer)
-    const {toggleMenu} = useActions()
-
-    const handleToggle = () => toggleMenu()
+    const { isOpenMenu } = useTypedSelector(state => state.menuReducer)
+    const { data } = useTypedSelector(state => state.weatherReducer)
+    const dispatch = useDispatch()
+    const handleToggle = () => dispatch(toggleMenu())
 
     return (
 
@@ -33,7 +28,7 @@ export const Menu: FC<MenuProps> = ({content}) => {
                     spaceBetween={15}
                     slidesPerView='auto'
                 >
-                    {content?.map((el, idx) => (
+                    {data?.daily?.map((el, idx) => (
                         <SwiperSlide className={styles.item} key={idx}>
                             <span className={styles.day}>{convertTimestampToDate(el.dt, 'dd')}</span>
                             <span className={styles.date}>{convertTimestampToDate(el.dt, 'DD.MM')}</span>

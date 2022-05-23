@@ -1,31 +1,19 @@
-import { FC } from 'react'
-import { IWeather } from '../../types/IWeather'
 import { Cloud } from '@mui/icons-material'
-import { Button, Skeleton, Stack } from '@mui/material'
+import { Button, Skeleton } from '@mui/material'
 import { WeatherDays } from '../WeatherDays/WeatherDays';
 import { WeatherHours } from '../WeatherHours/WeatherHours'
 import { WeatherInfo } from '../WeatherInfo/WeatherInfo';
-import { useActions } from '../../hooks/useActions';
+import { useTypedSelector } from '../../hooks/redux';
+import { toggleMenu } from '../../store/reducers/menuSlice';
+import { useDispatch } from 'react-redux';
 import styles from './Weather.module.scss'
 
-interface WeatherProps {
-    data: IWeather | undefined
-    isLoading: boolean
-    isError: boolean
-  }
+export const Weather = () => {
 
-export const Weather: FC<WeatherProps> = ({data, isLoading, isError}) => {
-
-  const {toggleMenu} = useActions()
-
-  const {
-    temp,
-    clouds,
-    hourly,
-    daily
-  } = {...data, ...data?.current};
-
-  const handleOpenMenu = () => toggleMenu()
+  const {data, isLoading, error} = useTypedSelector(state => state.weatherReducer)
+  const { temp, clouds } = {...data?.current};
+  const dispatch = useDispatch()
+  const handleOpenMenu = () => dispatch(toggleMenu())
 
   const WeatherContent = () => (
     <div className={styles.content}>
@@ -38,23 +26,19 @@ export const Weather: FC<WeatherProps> = ({data, isLoading, isError}) => {
         <Cloud />
         {clouds}%
       </span>
-      <WeatherDays days={daily} />
-      <Button
-        className={styles.btn}
-        variant='contained'
-        onClick={handleOpenMenu}
-      >
+      <WeatherDays />
+      <Button className={styles.btn} variant='contained' onClick={handleOpenMenu}>
         Прогноз на неделю
       </Button>
-      <WeatherHours hours={hourly} />
-      <WeatherInfo data={data} />
+      <WeatherHours />
+      <WeatherInfo />
     </div>
   )
 
   return (
     <div className={styles.container}>
       <div className={styles.weather}>
-        {isLoading || isError ? <Skeleton height={550} /> : <WeatherContent />}
+        {isLoading || error ? <Skeleton height={550} /> : <WeatherContent />}
       </div>
     </div>
   )

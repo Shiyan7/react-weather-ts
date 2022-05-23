@@ -1,28 +1,36 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { ICoord } from "../../types/ICoord";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { IWeather } from "../../types/IWeather";
 
 interface IState {
-  location: ICoord
+  data: IWeather | null;
+  isLoading: boolean;
+  error: boolean
 }
 
 const initialState: IState = {
-  location: {
-    lat: 0, lon: 0
-  }
+  data: null,
+  isLoading: true,
+  error: false
 }
 
 export const weatherSlice = createSlice({
   name: "weather",
   initialState,
   reducers: {
-    setLocation: (state, action) => {
-      state.location = action.payload;
+    weatherFetching: state => {
+      state.isLoading = true;
     },
+    weatherFetchingSuccess: (state, action: PayloadAction<IWeather>) => {
+      state.isLoading = false;
+      state.error = false;
+      state.data = action.payload
+    },
+    weatherFetchingError: state => {
+      state.isLoading = false
+      state.error = true
+    }
   },
 });
 
-export const {
-  setLocation,
-} = weatherSlice.actions;
-
-export default weatherSlice.reducer;
+export const weatherReducer =  weatherSlice.reducer
+export const weatherActions =  weatherSlice.actions

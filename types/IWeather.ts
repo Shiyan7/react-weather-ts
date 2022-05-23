@@ -22,7 +22,8 @@ interface Current {
     wind_gust: number;
     weather: Weather[];
 }
-export interface IHourly {
+
+interface Hourly {
     dt: number;
     temp: number;
     feels_like: number;
@@ -55,7 +56,7 @@ interface FeelsLike {
     morn: number;
 }
 
-export interface IDaily {
+interface Daily {
     dt: number;
     sunrise: number;
     sunset: number;
@@ -83,6 +84,6 @@ export interface IWeather {
     timezone: string;
     timezone_offset: number;
     current: Current;
-    hourly: IHourly[];
-    daily: IDaily[];
+    hourly: Hourly[];
+    daily: Daily[];
 }

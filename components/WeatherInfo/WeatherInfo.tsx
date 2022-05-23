@@ -1,13 +1,11 @@
-import { FC } from 'react'
 import { convertTimestampToDate } from '../../helpers/convertTimestampToDate'
-import { IWeather } from '../../types/IWeather'
+import { useTypedSelector } from '../../hooks/redux'
 import styles from './WeatherInfo.module.scss'
 
-interface WeatherInfoProps {
-  data: IWeather | undefined
-}
 
-export const WeatherInfo: FC<WeatherInfoProps> = ({data}) => {
+export const WeatherInfo = () => {
+
+  const {data} = useTypedSelector(state => state.weatherReducer)
 
   const {
     sunrise,
@@ -19,12 +17,12 @@ export const WeatherInfo: FC<WeatherInfoProps> = ({data}) => {
   } = {...data?.current};
 
   const items = [
-    {title: 'Восход', value: convertTimestampToDate(sunrise, 'HH:mm')},
-    {title: 'Закат', value: convertTimestampToDate(sunset, 'HH:mm')},
-    {title: 'Ощущается', value: Math.round(Number(feels_like)), caption: '°C'},
-    {title: 'Влажность', value: humidity, caption: '%'},
-    {title: 'Давление', value: pressure, caption: 'mbar'},
-    {title: 'Скорость ветра', value: wind_speed, caption: ' км/ч'},
+    {title: 'Восход', value: convertTimestampToDate(sunrise)},
+    {title: 'Закат', value: convertTimestampToDate(sunset)},
+    {title: 'Ощущается', value: Math.round(Number(feels_like)), unit: '°C'},
+    {title: 'Влажность', value: humidity, unit: '%'},
+    {title: 'Давление', value: pressure, unit: 'mbar'},
+    {title: 'Скорость ветра', value: wind_speed, unit: ' км/ч'},
   ]
 
   return (
@@ -32,7 +30,7 @@ export const WeatherInfo: FC<WeatherInfoProps> = ({data}) => {
       {items.map((el, idx) => (
         <li className={styles.item} key={idx}>
           <span className={styles.title}>{el.title}</span>
-          <span className={styles.value}>{el.value}{el.caption}</span>
+          <span className={styles.value}>{el.value}{el.unit}</span>
         </li>
       ))}
     </ul>

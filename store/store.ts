@@ -1,18 +1,18 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { weatherAPI } from "../services/WeatherService";
 import { menuReducer } from "./reducers/menuSlice";
+import { weatherReducer } from "./reducers/weatherSlice";
 
 const rootReducer = combineReducers({
     menuReducer,
-    [weatherAPI.reducerPath]: weatherAPI.reducer
+    weatherReducer,
 })
 
 export const setupStore = () => {
     return configureStore({
         reducer: rootReducer,
-        middleware: (getDefaultMiddleware) =>
-            getDefaultMiddleware().concat(weatherAPI.middleware),
     })
 }
 
 export type RootState = ReturnType<typeof rootReducer>
+export type AppStore = ReturnType<typeof setupStore>
+export type AppDispatch = AppStore['dispatch']
