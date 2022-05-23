@@ -56,6 +56,7 @@ export const theme = createTheme({
         styleOverrides: {
           paper: {
             backgroundColor: '#1e213a',
+            backgroundImage: 'none'
           }
         }
       },
