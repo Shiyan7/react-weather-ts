@@ -1,29 +1,26 @@
 .header {
+    position: relative;
     background-color: #1e213a;
 }
 
 .container {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    max-width: 475px;
+    justify-content: flex-end;
     width: 100%;
-    padding: 0 25px;
-    margin: 0 auto;
     height: 70px;
-
-    @media (max-width: 576px) {
-        padding: 0 25px;
-        height: 60px;
-    }
 }
 
 .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     margin: 0;
     font-size: 18px;
     line-height: 18px;
     color: #fff;
-    transform: translateY(-3px);
+    transform: translate(-50%, -50%);
 
     svg {
         fill: #fff;

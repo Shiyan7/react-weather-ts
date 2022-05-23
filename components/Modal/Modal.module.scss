@@ -1,0 +1,24 @@
+.caption {
+    display: block;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: rgba(#fff, 0.7);
+    margin-bottom: 8px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+
+    &:not(:last-child) {
+        margin-bottom: 25px;
+    }
+}

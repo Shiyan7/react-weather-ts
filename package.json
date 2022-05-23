@@ -30,7 +30,6 @@
     "react": "18.0.0",
     "react-browser-navigator": "^1.5.7",
     "react-dom": "18.0.0",
-    "react-icons": "^4.3.1",
     "react-redux": "^7.2.8",
     "responsive-loader": "^2.3.0",
     "svg-sprite-loader": "^6.0.11",

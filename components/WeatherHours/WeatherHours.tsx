@@ -7,10 +7,13 @@ import { Air } from '@mui/icons-material';
 import { useTypedSelector } from '../../hooks/redux';
 import styles from './WeatherHours.module.scss'
 import 'swiper/css';
+import { convertTemp } from '../../helpers/convertTemp';
+import { convertSpeed } from '../../helpers/convertSpeed';
 
 export const WeatherHours = () => {
 
     const {data} = useTypedSelector(state => state.weatherReducer)
+    const {unitTemp, unitSpeed} = useTypedSelector(state => state.unitReducer)
     
     return (
         <div className={styles.container}>
@@ -26,11 +29,11 @@ export const WeatherHours = () => {
                             <span className={styles.time}>
                                 {idx === 0 ? 'Сейчас' : convertTimestampToDate(el.dt)}
                             </span>
-                            <span className={styles.temp}>{Math.round(el.temp)} <sup>°</sup></span>
+                            <span className={styles.temp}>{convertTemp(el.temp, unitTemp)} <sup>°</sup></span>
                             {generateIcon(el.weather[0].icon)}
                             <div className={styles.windSpeed}>
                                 <Air />
-                                <span className={styles.windSpeedValue}>{el.wind_speed} км/ч</span>
+                                <span className={styles.windSpeedValue}>{convertSpeed(el.wind_speed, unitSpeed)} {unitSpeed}</span>
                             </div>
                         </div>
                     </SwiperSlide>

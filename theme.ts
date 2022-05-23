@@ -2,6 +2,7 @@ import { createTheme } from "@mui/material";
 
 export const theme = createTheme({
     palette: {
+      mode: 'dark',
       primary: {
         main: 'rgba(255,255,255, 0.1)'
       },
@@ -31,6 +32,25 @@ export const theme = createTheme({
             },
           },
         ],
+      },
+      MuiDialog: {
+        styleOverrides: {
+          paper: {
+            maxWidth: '350px',
+            color: '#fff',
+            borderRadius: '10px',
+            border: '1px solid rgba(255,255,255, 0.2)',
+            backgroundColor: '#292c44',
+            backgroundImage: 'none'
+          }
+        }
+      },
+      MuiList: {
+        styleOverrides: {
+          root: {
+            backgroundColor: '#1e213a',
+          }
+        },
       },
       MuiDrawer: {
         styleOverrides: {

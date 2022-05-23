@@ -1,10 +1,14 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { menuReducer } from "./reducers/menuSlice";
+import { modalReducer } from "./reducers/modalSlice";
 import { weatherReducer } from "./reducers/weatherSlice";
+import { unitReducer } from "./reducers/unitSlice";
 
 const rootReducer = combineReducers({
     menuReducer,
+    modalReducer,
     weatherReducer,
+    unitReducer,
 })
 
 export const setupStore = () => {

@@ -1,6 +1,7 @@
 import { SwipeableDrawer } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { convertTemp } from '../../helpers/convertTemp';
 import { convertTimestampToDate } from '../../helpers/convertTimestampToDate';
 import { generateIcon } from '../../helpers/generateIcon';
 import { useTypedSelector } from '../../hooks/redux';
@@ -11,6 +12,7 @@ export const Menu = () => {
 
     const { isOpenMenu } = useTypedSelector(state => state.menuReducer)
     const { data } = useTypedSelector(state => state.weatherReducer)
+    const { unitTemp } = useTypedSelector(state => state.unitReducer)
     const dispatch = useDispatch()
     const handleToggle = () => dispatch(toggleMenu())
 
@@ -34,9 +36,9 @@ export const Menu = () => {
                             <span className={styles.date}>{convertTimestampToDate(el.dt, 'DD.MM')}</span>
                             {generateIcon(el.weather[0].icon)}
                             <div className={styles.temp}>
-                                <span className={styles.tempValue}>{Math.round(el.temp.max)}<sup>°</sup></span>
+                                <span className={styles.tempValue}>{convertTemp(el.temp.max, unitTemp)}<sup>°</sup></span>
                                 <span className={styles.tempDivider}>/</span>
-                                <span className={styles.tempValue}>{Math.round(el.temp.min)}<sup>°</sup></span>
+                                <span className={styles.tempValue}>{convertTemp(el.temp.min, unitTemp)}<sup>°</sup></span>
                             </div>
                         </SwiperSlide>
                     ))}

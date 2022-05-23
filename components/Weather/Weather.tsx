@@ -7,10 +7,12 @@ import { useTypedSelector } from '../../hooks/redux';
 import { toggleMenu } from '../../store/reducers/menuSlice';
 import { useDispatch } from 'react-redux';
 import styles from './Weather.module.scss'
+import { convertTemp } from '../../helpers/convertTemp';
 
 export const Weather = () => {
 
   const {data, isLoading, error} = useTypedSelector(state => state.weatherReducer)
+  const {unitTemp} = useTypedSelector(state => state.unitReducer)
   const { temp, clouds } = {...data?.current};
   const dispatch = useDispatch()
   const handleOpenMenu = () => dispatch(toggleMenu())
@@ -18,8 +20,8 @@ export const Weather = () => {
   const WeatherContent = () => (
     <div className={styles.content}>
       <h2 className={styles.temp}>
-        {Math.round(Number(temp))}
-        <sup>°C</sup>
+        {convertTemp(temp, unitTemp)}
+        <sup>{unitTemp}</sup>
       </h2>
       <h3 className={styles.desc}>{data?.current.weather[0].description}</h3>
       <span className={styles.clouds}>

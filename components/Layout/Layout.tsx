@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { fetchWeather } from '../../services/fetchWeather';
 import { usePosition } from 'use-position';
 import { useDispatch } from 'react-redux';
+import styles from './Layout.module.scss'
 
 interface LayoutProps {
     children: ReactNode
@@ -15,7 +16,7 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(fetchWeather({lat: latitude, lon: longitude}))
+        if(latitude && longitude) dispatch(fetchWeather({lat: latitude, lon: longitude}))
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [latitude, longitude])
 
@@ -25,7 +26,9 @@ export const Layout: FC<LayoutProps> = ({ children }) => {
                 <title>Weather App</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            {children}
+            <div className={styles.container}>
+                {children}
+            </div>
         </>
     )
 }

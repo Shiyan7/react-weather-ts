@@ -1,3 +1,6 @@
+import { convertPressure } from '../../helpers/convertPressure'
+import { convertSpeed } from '../../helpers/convertSpeed'
+import { convertTemp } from '../../helpers/convertTemp'
 import { convertTimestampToDate } from '../../helpers/convertTimestampToDate'
 import { useTypedSelector } from '../../hooks/redux'
 import styles from './WeatherInfo.module.scss'
@@ -6,6 +9,7 @@ import styles from './WeatherInfo.module.scss'
 export const WeatherInfo = () => {
 
   const {data} = useTypedSelector(state => state.weatherReducer)
+  const {unitTemp, unitSpeed, unitPressure} = useTypedSelector(state => state.unitReducer)
 
   const {
     sunrise,
@@ -19,10 +23,10 @@ export const WeatherInfo = () => {
   const items = [
     {title: 'Восход', value: convertTimestampToDate(sunrise)},
     {title: 'Закат', value: convertTimestampToDate(sunset)},
-    {title: 'Ощущается', value: Math.round(Number(feels_like)), unit: '°C'},
+    {title: 'Ощущается', value: convertTemp(feels_like, unitTemp), unit: unitTemp},
     {title: 'Влажность', value: humidity, unit: '%'},
-    {title: 'Давление', value: pressure, unit: 'mbar'},
-    {title: 'Скорость ветра', value: wind_speed, unit: ' км/ч'},
+    {title: 'Давление', value: convertPressure(pressure, unitPressure), unit: unitPressure},
+    {title: 'Скорость ветра', value: convertSpeed(wind_speed, unitSpeed), unit: ` ${unitSpeed}`},
   ]
 
   return (
