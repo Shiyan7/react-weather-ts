@@ -21,13 +21,13 @@ export const Header: React.FC<IHeader> = ({title, isLoading, isError}) => {
 
     const HeaderContent = () => (
         <>
-            <IconButton className={styles.button}>
+            <IconButton sx={{fontSize: '20px', lineHeight: '20px', color: '#fff'}}>
                 <FiPlus />
             </IconButton>
             <h1 className={styles.title}>
                 {title}
             </h1>
-            <IconButton className={styles.button}>
+            <IconButton sx={{fontSize: '20px', lineHeight: '20px', color: '#fff'}}>
                 <FiMoreVertical />
             </IconButton>
         </>

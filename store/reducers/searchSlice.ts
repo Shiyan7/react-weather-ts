@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IWeather } from "../../types/IWeather";
 
 interface IState {
     value: string
@@ -24,9 +23,5 @@ export const searchSlice = createSlice({
     }
 })
 
-export const {
-    setCity,
-    setValue,
-} = searchSlice.actions
-
-export default searchSlice.reducer
+export const searchReducer =  searchSlice.reducer
+export const searchActions =  searchSlice.actions

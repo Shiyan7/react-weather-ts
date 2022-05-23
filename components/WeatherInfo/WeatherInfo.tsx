@@ -24,7 +24,7 @@ export const WeatherInfo: FC<WeatherInfoProps> = ({data}) => {
     {title: 'Ощущается', value: Math.round(Number(feels_like)), caption: '°C'},
     {title: 'Влажность', value: humidity, caption: '%'},
     {title: 'Давление', value: pressure, caption: 'mbar'},
-    {title: 'Скорость ветра', value: wind_speed, caption: 'км/ч'},
+    {title: 'Скорость ветра', value: wind_speed, caption: ' км/ч'},
   ]
 
   return (
@@ -32,7 +32,7 @@ export const WeatherInfo: FC<WeatherInfoProps> = ({data}) => {
       {items.map((el, idx) => (
         <li className={styles.item} key={idx}>
           <span className={styles.title}>{el.title}</span>
-          <span className={styles.value}>{el.value} {el.caption}</span>
+          <span className={styles.value}>{el.value}{el.caption}</span>
         </li>
       ))}
     </ul>
