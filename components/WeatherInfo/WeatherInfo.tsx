@@ -5,7 +5,6 @@ import { convertTimestampToDate } from '../../helpers/convertTimestampToDate'
 import { useTypedSelector } from '../../hooks/redux'
 import styles from './WeatherInfo.module.scss'
 
-
 export const WeatherInfo = () => {
 
   const {data} = useTypedSelector(state => state.weatherReducer)

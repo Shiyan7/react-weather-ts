@@ -1,4 +1,5 @@
 import { SwipeableDrawer } from '@mui/material';
+import { FreeMode } from 'swiper';
 import { useDispatch } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { convertTemp } from '../../helpers/convertTemp';
@@ -26,9 +27,11 @@ export const Menu = () => {
         >
             <div className={styles.container}>
                 <Swiper
+                    modules={[FreeMode]}
                     className={styles.slider}
                     spaceBetween={15}
                     slidesPerView='auto'
+                    freeMode
                 >
                     {data?.daily?.map((el, idx) => (
                         <SwiperSlide className={styles.item} key={idx}>

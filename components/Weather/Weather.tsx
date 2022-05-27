@@ -29,7 +29,11 @@ export const Weather = () => {
         {clouds}%
       </span>
       <WeatherDays />
-      <Button className={styles.btn} variant='contained' onClick={handleOpenMenu}>
+      <Button
+        className={styles.btn}
+        variant='contained'
+        onClick={handleOpenMenu}
+      >
         Прогноз на неделю
       </Button>
       <WeatherHours />
