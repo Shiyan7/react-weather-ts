@@ -34,14 +34,16 @@ export const Menu = () => {
                     freeMode
                 >
                     {data?.daily?.map((el, idx) => (
-                        <SwiperSlide className={styles.item} key={idx}>
-                            <span className={styles.day}>{convertTimestampToDate(el.dt, 'dd')}</span>
-                            <span className={styles.date}>{convertTimestampToDate(el.dt, 'DD.MM')}</span>
-                            {generateIcon(el.weather[0].icon)}
-                            <div className={styles.temp}>
-                                <span className={styles.tempValue}>{convertTemp(el.temp.max, unitTemp)}<sup>°</sup></span>
-                                <span className={styles.tempDivider}>/</span>
-                                <span className={styles.tempValue}>{convertTemp(el.temp.min, unitTemp)}<sup>°</sup></span>
+                        <SwiperSlide style={{width: 'auto'}} key={idx}>
+                            <div className={styles.item}>
+                                <span className={styles.day}>{convertTimestampToDate(el.dt, 'dd')}</span>
+                                <span className={styles.date}>{convertTimestampToDate(el.dt, 'DD.MM')}</span>
+                                {generateIcon(el.weather[0].icon)}
+                                <div className={styles.temp}>
+                                    <span className={styles.tempValue}>{convertTemp(el.temp.max, unitTemp)}<sup>°</sup></span>
+                                    <span className={styles.tempDivider}>/</span>
+                                    <span className={styles.tempValue}>{convertTemp(el.temp.min, unitTemp)}<sup>°</sup></span>
+                                </div>
                             </div>
                         </SwiperSlide>
                     ))}
