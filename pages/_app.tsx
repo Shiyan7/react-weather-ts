@@ -4,7 +4,6 @@ import {setupStore} from '../store/store';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { theme } from '../theme';
 import { Layout } from '../components/Layout/Layout';
-import NextNProgress from 'nextjs-progressbar';
 
 export default function MyApp({Component, pageProps} : AppProps) {
 
@@ -15,7 +14,6 @@ export default function MyApp({Component, pageProps} : AppProps) {
         <Provider store={store}>
           <Layout>
             <CssBaseline />
-            <NextNProgress/>
             <Component {...pageProps}/>
           </Layout>
         </Provider>

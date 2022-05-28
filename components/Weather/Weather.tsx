@@ -44,7 +44,7 @@ export const Weather = () => {
   return (
     <div className={styles.container}>
       <div className={styles.weather}>
-        {isLoading || error ? <Skeleton height={550} /> : <WeatherContent />}
+        {isLoading || error ? <Skeleton height={700} /> : <WeatherContent />}
       </div>
     </div>
   )
