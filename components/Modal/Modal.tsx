@@ -53,7 +53,7 @@ export const Modal = () => {
                     </FormControl>
                 </div>
                 <div className={styles.item}>
-                    <span className={styles.caption}>Единицы измерения атмосферного давления</span>
+                    <span className={styles.caption}>Единицы измерения давления</span>
                     <FormControl variant="standard">
                         <Select
                             value={unitPressure}
