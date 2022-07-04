@@ -1,14 +1,13 @@
-import { FC } from 'react'
-import { FreeMode } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { convertTimestampToDate } from '../../helpers/convertTimestampToDate'
-import { generateIcon } from '../../helpers/generateIcon'
-import { Air } from '@mui/icons-material';
-import { useTypedSelector } from '../../hooks/redux';
+import {FreeMode} from 'swiper';
+import {Air} from '@mui/icons-material';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import {convertTimestampToDate} from '@/helpers/convertTimestampToDate'
+import {generateIcon} from '@/helpers/generateIcon'
+import {useTypedSelector} from '@/hooks/useTypedSelector';
+import {convertTemp} from '@/helpers/convertTemp';
+import {convertSpeed} from '@/helpers/convertSpeed';
 import styles from './WeatherHours.module.scss'
 import 'swiper/css';
-import { convertTemp } from '../../helpers/convertTemp';
-import { convertSpeed } from '../../helpers/convertSpeed';
 
 export const WeatherHours = () => {
 

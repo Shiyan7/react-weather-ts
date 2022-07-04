@@ -7,7 +7,7 @@ export const theme = createTheme({
         main: 'rgba(255,255,255, 0.1)'
       },
       background: {
-        default: "#1e213a",
+        default: "#3070CC",
       }
     },
     typography: {
@@ -40,7 +40,7 @@ export const theme = createTheme({
             color: '#fff',
             borderRadius: '10px',
             border: '1px solid rgba(255,255,255, 0.2)',
-            backgroundColor: '#292c44',
+            backgroundColor: '#145ECA',
             backgroundImage: 'none'
           }
         }
@@ -48,14 +48,14 @@ export const theme = createTheme({
       MuiList: {
         styleOverrides: {
           root: {
-            backgroundColor: '#1e213a',
+            backgroundColor: '#145ECA',
           }
         },
       },
       MuiDrawer: {
         styleOverrides: {
           paper: {
-            backgroundColor: '#1e213a',
+            backgroundColor: '#145ECA',
             backgroundImage: 'none'
           }
         }
@@ -63,7 +63,7 @@ export const theme = createTheme({
       MuiSkeleton: {
         styleOverrides: {
           root: {
-            backgroundColor: '#6C7590',
+            backgroundColor: '#C2D3ED',
             borderRadius: '5px',
             transform: 'none' 
           }
