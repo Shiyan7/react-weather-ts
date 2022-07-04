@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchWeather } from "API/fetchWeather";
+import { fetchWeather } from "@/api/fetchWeather";
 import { IWeather } from "@/types/IWeather";
 
 interface IState {

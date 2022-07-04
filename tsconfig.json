@@ -19,7 +19,7 @@
       "@/helpers/*": ["helpers/*"],
       "@/types/*": ["types/*"],
       "@/components/*": ["components/*"],
-      "@/api/*": ["API/*"],
+      "@/api/*": ["api/*"],
       "@/store/*": ["store/*"],
       "@/constants/*": ["constants/*"],
       "@/hooks/*": ["hooks/*"],

@@ -4,7 +4,7 @@ import {Weather} from '@/components/Weather/Weather';
 import {Menu} from '@/components/Menu/Menu';
 import {Header} from '@/components/Header/Header';
 import {Modal} from '@/components/Modal/Modal';
-import {fetchWeather} from 'API/fetchWeather';
+import {fetchWeather} from '@/api/fetchWeather';
 import {useDispatch} from 'react-redux';
 import {usePosition} from 'use-position';
 
