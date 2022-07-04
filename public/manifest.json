@@ -1,8 +1,8 @@
 {
-    "name": "Weather App",
-    "short_name": "Weather App",
-    "theme_color": "#3070CC",
-    "background_color": "#3070CC",
+    "name": "Weather",
+    "short_name": "Weather",
+    "theme_color": "#3070cc",
+    "background_color": "#3070cc",
     "display": "standalone",
     "orientation": "portrait",
     "scope": "/",

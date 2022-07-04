@@ -10,12 +10,9 @@ module.exports = withPlugins([
         },
     }],
     [withPWA, {
-        reactStrictMode: true,
-        poweredByHeader: false,
-    
         pwa: {
             dest: 'public',
-            runtimeCaching
+            runtimeCaching,
         }
-    }]
+    }],
 ]);
